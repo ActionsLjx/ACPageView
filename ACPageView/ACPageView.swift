@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SnapKit
 let ACScreenWidth: CGFloat = UIScreen.main.bounds.size.width
 let ACScreenHeight: CGFloat = UIScreen.main.bounds.size.height
 let ACPageViewDefaultCellID = "ACPageViewDefaultCellID"
@@ -35,7 +35,7 @@ class ACPageView: UIView {
         return view
     }()
     
-    lazy private var pagesCollectionView:UICollectionView = {
+    lazy var pagesCollectionView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
@@ -78,16 +78,24 @@ class ACPageView: UIView {
     var lineHeight:CGFloat = 1
     var lineColor:UIColor = UIColor.black
     var lineCornerRadius:CGFloat = 0
+    var isLineHidden = false
     //pages 代理
     var delegate:ACPageViewDelegate?
     
     //标题样式
+    var titleWidth:CGFloat = 80
+    var titleHeight:CGFloat = 30
+    var showTyep:ACTitleShowType = .equal
     var defaultTitleColor:UIColor = UIColor.black
     var defaultTitleBgColor:UIColor = UIColor.white
-    var defaultTitleFont:UIFont = UIFont.systemFont(ofSize: 12, weight: .regular)
+    var defaultTitleFont:UIFont = UIFont.systemFont(ofSize: 16, weight: .regular)
     var selectTitleColor:UIColor = UIColor.black
     var selectTitleBgColor:UIColor = UIColor.white
-    var selectTitleFont:UIFont = UIFont.systemFont(ofSize: 12, weight: .medium)
+    var selectTitleFont:UIFont = UIFont.systemFont(ofSize: 18, weight: .medium)
+    var titleBGCornerRadius:CGFloat = 0
+    
+    //间距
+    var centerMarginHeight:CGFloat = 0  //标题与底部pageview的距离
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -99,7 +107,9 @@ class ACPageView: UIView {
     }
     
     private func initialFromUI(frame:CGRect) {
+        self.backgroundColor = UIColor.clear
         self.addSubview(self.pagesTitleCollectionView)
+        self.pagesTitleCollectionView.backgroundColor = UIColor.clear
         self.pagesTitleCollectionView.addSubview(self.sliderLine)
         self.addSubview(self.pagesCollectionView)
         self.pagesTitleCollectionView.delegate = self
@@ -112,7 +122,26 @@ class ACPageView: UIView {
     
     
     override func layoutSubviews() {
-       
+        self.pagesTitleCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(self)
+            make.left.equalTo(self)
+            make.right.equalTo(self)
+            make.height.equalTo(self.titleHeight)
+        }
+        self.pagesTitleCollectionView.contentSize = CGSize.init(width: self.titleWidth * CGFloat(self.titles.count), height: self.titleHeight)
+        let pagesLayout = UICollectionViewFlowLayout.init()
+        pagesLayout.minimumLineSpacing = 0
+        pagesLayout.minimumInteritemSpacing = 0
+        pagesLayout.scrollDirection = .horizontal
+        pagesLayout.itemSize = CGSize.init(width: ACScreenWidth, height: self.frame.height - self.titleHeight - self.centerMarginHeight)
+        self.pagesCollectionView.collectionViewLayout = pagesLayout
+        self.pagesCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(self.pagesTitleCollectionView.snp.bottom).offset(self.centerMarginHeight)
+            make.left.equalTo(self)
+            make.right.equalTo(self)
+            make.height.equalTo(self.frame.height - self.titleHeight - self.centerMarginHeight)
+        }
+        self.pagesCollectionView.contentSize = CGSize.init(width:CGFloat(self.titles.count)*ACScreenWidth, height: self.frame.height - self.titleHeight - self.centerMarginHeight)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -129,12 +158,15 @@ class ACPageView: UIView {
                 var selectID = Int(floor(self.pagesCollectionView.contentOffset.x / ACScreenWidth))
                 selectID = selectID > 0 ? selectID : 0
                 self.selectId = selectID
-        
+                if(self.pagesCollectionView.contentOffset.x == CGFloat(selectID) * ACScreenWidth && self.titleBarShowType == .auto){
+                    self.pagesTitleCollectionView.scrollToItem(at: IndexPath.init(row: selectID, section: 0), at: .centeredHorizontally, animated: true)
+                }
             }
     }
     
     private func configEqualTitles(height:CGFloat) {
-        let titleWidth = ACScreenWidth / CGFloat(self.titles.count)
+        self.titleHeight = height
+        self.titleWidth = ACScreenWidth / CGFloat(self.titles.count)
         let layout = UICollectionViewFlowLayout.init()
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 0
@@ -165,27 +197,63 @@ class ACPageView: UIView {
         self.pagesCollectionView.isPagingEnabled = true
     
     }
+    
+    private func configAutoTitles(height:CGFloat,width:CGFloat){
+        self.titleWidth = width
+        self.titleHeight = height
+        self.sliderLine.isHidden = self.isLineHidden
+        let layout = UICollectionViewFlowLayout.init()
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        layout.itemSize = CGSize.init(width: titleWidth, height: height)
+        self.pagesTitleCollectionView.frame = CGRect.init(x: 0, y: 0, width: ACScreenWidth, height: height)
+        self.pagesTitleCollectionView.collectionViewLayout = layout
+        self.pagesTitleCollectionView.contentSize = CGSize.init(width: ACScreenWidth, height: height)
+        self.pagesTitleCollectionView.reloadData()
+
+        self.lineAbleScrollWidth = titleWidth * CGFloat((self.titles.count - 1))
+        self.lineDefaultCenterX = titleWidth/2
+        self.sliderLine.backgroundColor = lineColor
+        self.sliderLine.frame = CGRect.init(x: 0, y: height - lineHeight, width: lineWidth, height: lineHeight)
+        self.sliderLine.center.x = self.lineDefaultCenterX
+        self.sliderLine.bringSubviewToFront(self.pagesTitleCollectionView)
+        
+        self.pagesCollectionView.frame = CGRect.init(x: 0, y: height, width: ACScreenWidth, height: self.frame.height - height)
+        self.pagesCollectionView.contentSize = CGSize.init(width: ACScreenWidth * CGFloat(self.titles.count), height: self.pagesCollectionView.frame.height)
+        let pagesLayout = UICollectionViewFlowLayout.init()
+        pagesLayout.minimumLineSpacing = 0
+        pagesLayout.minimumInteritemSpacing = 0
+        pagesLayout.scrollDirection = .horizontal
+        pagesLayout.itemSize = CGSize.init(width: ACScreenWidth, height: self.pagesCollectionView.frame.height)
+        
+        self.pagesCollectionView.collectionViewLayout = pagesLayout
+        self.pagesCollectionView.reloadData()
+        self.pagesCollectionView.isPagingEnabled = true
+    }
 
     //界面移除时候销毁
     deinit {
         print("ACPageView销毁")
-        NotificationCenter.default.removeObserver(self.pagesCollectionView, forKeyPath: "contentOffset")
+        self.pagesCollectionView.removeObserver(self, forKeyPath: "contentOffset")
     }
     
 }
 
 //MARK: 外部配置ACPageView方法
 extension ACPageView {
-    func configTitles(titles:[String],showType:ACTitleShowType,titleHeight:CGFloat){
+    func configTitles(titles:[String],showType:ACTitleShowType,titleHeight:CGFloat,titleWidth:CGFloat?){
         if(titles.count == 0){
             return
         }
+        self.titleBarShowType = showType
         self.titles = titles
         switch showType {
         case .equal:
             configEqualTitles(height: titleHeight)
             break
         case .auto:
+            configAutoTitles(height: titleHeight, width: titleWidth ?? 80)
             break
         }
     }
@@ -201,7 +269,7 @@ extension ACPageView {
     func register(_ nib: UINib?, forCellWithReuseIdentifier identifier: String){
         self.pagesCollectionView.register(nib, forCellWithReuseIdentifier: identifier)
     }
-
+    
     
 }
 
@@ -243,12 +311,16 @@ extension ACPageView{
         cell.titleLab.textColor = isSelectId ? selectTitleColor : defaultTitleColor
         cell.titleLab.font = isSelectId ? selectTitleFont : defaultTitleFont
         cell.backgroundColor = isSelectId ? selectTitleBgColor : defaultTitleBgColor
+        cell.layer.cornerRadius = titleBGCornerRadius
         return cell
     }
     
     func titlesCollectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         isClickedScoll = true
         self.selectId = indexPath.row
+        if(self.showTyep == .auto){
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }
         UIView.animate(withDuration: 0.3) {
             self.pagesCollectionView.isPagingEnabled = false
             self.pagesCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7630B5EB2906AF720072AE95 /* ACPageTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7630B5E82906AF720072AE95 /* ACPageTitleCell.xib */; };
+		7630B5EC2906AF720072AE95 /* ACPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7630B5E92906AF720072AE95 /* ACPageView.swift */; };
+		7630B5ED2906AF720072AE95 /* ACPageTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7630B5EA2906AF720072AE95 /* ACPageTitleCell.swift */; };
 		76D8F71B29050A120003D207 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D8F71A29050A120003D207 /* AppDelegate.swift */; };
 		76D8F71D29050A120003D207 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D8F71C29050A120003D207 /* SceneDelegate.swift */; };
 		76D8F71F29050A120003D207 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D8F71E29050A120003D207 /* ViewController.swift */; };
@@ -16,10 +19,7 @@
 		76D8F73229050A130003D207 /* ACPageViewDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D8F73129050A130003D207 /* ACPageViewDemoTests.swift */; };
 		76D8F73C29050A130003D207 /* ACPageViewDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D8F73B29050A130003D207 /* ACPageViewDemoUITests.swift */; };
 		76D8F73E29050A130003D207 /* ACPageViewDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D8F73D29050A130003D207 /* ACPageViewDemoUITestsLaunchTests.swift */; };
-		76D8F74F29050AB30003D207 /* ACPageTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76D8F74B29050AB30003D207 /* ACPageTitleCell.xib */; };
-		76D8F75029050AB30003D207 /* ACPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D8F74C29050AB30003D207 /* ACPageView.swift */; };
-		76D8F75129050AB40003D207 /* JXPageView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 76D8F74D29050AB30003D207 /* JXPageView.podspec */; };
-		76D8F75229050AB40003D207 /* ACPageTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D8F74E29050AB30003D207 /* ACPageTitleCell.swift */; };
+		85D9CD7621596289D100A6CB /* Pods_ACPageViewDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5227B1A1CF4817FE5A19D60C /* Pods_ACPageViewDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5227B1A1CF4817FE5A19D60C /* Pods_ACPageViewDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACPageViewDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7630B5E82906AF720072AE95 /* ACPageTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACPageTitleCell.xib; sourceTree = "<group>"; };
+		7630B5E92906AF720072AE95 /* ACPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPageView.swift; sourceTree = "<group>"; };
+		7630B5EA2906AF720072AE95 /* ACPageTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPageTitleCell.swift; sourceTree = "<group>"; };
 		76D8F71729050A120003D207 /* ACPageViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACPageViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D8F71A29050A120003D207 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76D8F71C29050A120003D207 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,10 +57,8 @@
 		76D8F73729050A130003D207 /* ACPageViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ACPageViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D8F73B29050A130003D207 /* ACPageViewDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPageViewDemoUITests.swift; sourceTree = "<group>"; };
 		76D8F73D29050A130003D207 /* ACPageViewDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACPageViewDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		76D8F74B29050AB30003D207 /* ACPageTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ACPageTitleCell.xib; sourceTree = "<group>"; };
-		76D8F74C29050AB30003D207 /* ACPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPageView.swift; sourceTree = "<group>"; };
-		76D8F74D29050AB30003D207 /* JXPageView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JXPageView.podspec; sourceTree = "<group>"; };
-		76D8F74E29050AB30003D207 /* ACPageTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACPageTitleCell.swift; sourceTree = "<group>"; };
+		97D1ED7F48BA705284C7BCB2 /* Pods-ACPageViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACPageViewDemo.debug.xcconfig"; path = "Target Support Files/Pods-ACPageViewDemo/Pods-ACPageViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		E8FEB83653557DBD111806BA /* Pods-ACPageViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACPageViewDemo.release.xcconfig"; path = "Target Support Files/Pods-ACPageViewDemo/Pods-ACPageViewDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85D9CD7621596289D100A6CB /* Pods_ACPageViewDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +87,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56B66C6F97514C05CE89C5BD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				97D1ED7F48BA705284C7BCB2 /* Pods-ACPageViewDemo.debug.xcconfig */,
+				E8FEB83653557DBD111806BA /* Pods-ACPageViewDemo.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7630B5E72906AF720072AE95 /* ACPageView */ = {
+			isa = PBXGroup;
+			children = (
+				7630B5E82906AF720072AE95 /* ACPageTitleCell.xib */,
+				7630B5E92906AF720072AE95 /* ACPageView.swift */,
+				7630B5EA2906AF720072AE95 /* ACPageTitleCell.swift */,
+			);
+			name = ACPageView;
+			path = ../../ACPageView;
+			sourceTree = "<group>";
+		};
 		76D8F70E29050A120003D207 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +115,8 @@
 				76D8F73029050A130003D207 /* ACPageViewDemoTests */,
 				76D8F73A29050A130003D207 /* ACPageViewDemoUITests */,
 				76D8F71829050A120003D207 /* Products */,
+				56B66C6F97514C05CE89C5BD /* Pods */,
+				CA896CA7DA1EA0E503EA8B7E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,7 +133,7 @@
 		76D8F71929050A120003D207 /* ACPageViewDemo */ = {
 			isa = PBXGroup;
 			children = (
-				76D8F74A29050AB30003D207 /* Sources */,
+				7630B5E72906AF720072AE95 /* ACPageView */,
 				76D8F71A29050A120003D207 /* AppDelegate.swift */,
 				76D8F71C29050A120003D207 /* SceneDelegate.swift */,
 				76D8F71E29050A120003D207 /* ViewController.swift */,
@@ -136,16 +162,12 @@
 			path = ACPageViewDemoUITests;
 			sourceTree = "<group>";
 		};
-		76D8F74A29050AB30003D207 /* Sources */ = {
+		CA896CA7DA1EA0E503EA8B7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				76D8F74B29050AB30003D207 /* ACPageTitleCell.xib */,
-				76D8F74C29050AB30003D207 /* ACPageView.swift */,
-				76D8F74D29050AB30003D207 /* JXPageView.podspec */,
-				76D8F74E29050AB30003D207 /* ACPageTitleCell.swift */,
+				5227B1A1CF4817FE5A19D60C /* Pods_ACPageViewDemo.framework */,
 			);
-			name = Sources;
-			path = ../../Sources;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,9 +177,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 76D8F74129050A130003D207 /* Build configuration list for PBXNativeTarget "ACPageViewDemo" */;
 			buildPhases = (
+				25C2E8499275919A29C4F241 /* [CP] Check Pods Manifest.lock */,
 				76D8F71329050A120003D207 /* Sources */,
 				76D8F71429050A120003D207 /* Frameworks */,
 				76D8F71529050A120003D207 /* Resources */,
+				9740586D116AB4293A1793A9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -252,11 +276,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76D8F75129050AB40003D207 /* JXPageView.podspec in Resources */,
 				76D8F72729050A130003D207 /* LaunchScreen.storyboard in Resources */,
 				76D8F72429050A130003D207 /* Assets.xcassets in Resources */,
 				76D8F72229050A120003D207 /* Main.storyboard in Resources */,
-				76D8F74F29050AB30003D207 /* ACPageTitleCell.xib in Resources */,
+				7630B5EB2906AF720072AE95 /* ACPageTitleCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +299,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		25C2E8499275919A29C4F241 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ACPageViewDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9740586D116AB4293A1793A9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ACPageViewDemo/Pods-ACPageViewDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ACPageViewDemo/Pods-ACPageViewDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ACPageViewDemo/Pods-ACPageViewDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		76D8F71329050A120003D207 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -284,8 +349,8 @@
 				76D8F71F29050A120003D207 /* ViewController.swift in Sources */,
 				76D8F71B29050A120003D207 /* AppDelegate.swift in Sources */,
 				76D8F71D29050A120003D207 /* SceneDelegate.swift in Sources */,
-				76D8F75229050AB40003D207 /* ACPageTitleCell.swift in Sources */,
-				76D8F75029050AB30003D207 /* ACPageView.swift in Sources */,
+				7630B5ED2906AF720072AE95 /* ACPageTitleCell.swift in Sources */,
+				7630B5EC2906AF720072AE95 /* ACPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +522,7 @@
 		};
 		76D8F74229050A130003D207 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97D1ED7F48BA705284C7BCB2 /* Pods-ACPageViewDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -485,6 +551,7 @@
 		};
 		76D8F74329050A130003D207 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8FEB83653557DBD111806BA /* Pods-ACPageViewDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

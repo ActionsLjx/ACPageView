@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         let pageview = ACPageView.init(frame: CGRect.init(x: 0, y: 58, width: self.view.bounds.width, height: self.view.bounds.height - 58))
         self.view.addSubview(pageview)
         pageview.delegate = self
-        pageview.configTitles(titles: ["标题一","标题二","标题三","标题四"], showType: .equal, titleHeight: 40)
+        pageview.configTitles(titles: ["标题一","标题二","标题三","标题四"], showType: .equal, titleHeight: 40,titleWidth: 60)
         // Do any additional setup after loading the view.
     }
 
